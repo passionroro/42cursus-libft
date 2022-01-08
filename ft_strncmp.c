@@ -15,12 +15,8 @@
 int	ft_strncmp(const char *s1, const char *s2, t_size n)
 {
 	t_size				i;
-	const unsigned char	*s3;
-	const unsigned char	*s4;
 
 	i = 0;
-	s3 = (const unsigned char *)s1;
-	s4 = (const unsigned char *)s2;
 	while ((s1[i] || s2[i]) && i < n)
 	{
 		if (ft_isascii(s1[i]) == 0 || ft_isascii(s2[i]) == 0)
@@ -28,7 +24,7 @@ int	ft_strncmp(const char *s1, const char *s2, t_size n)
 		if (s1[i] - s2[i] == 0)
 			i++;
 		else
-			return (s1[i] - s2[i]);
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 	}
 	return (0);
 }
